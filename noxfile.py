@@ -17,15 +17,14 @@ import nox
 nox.options.sessions = ["lint"]
 
 # Define the minimal nox version required to run
-nox.options.needs_version = ">= 2024.3.2"
+nox.needs_version = ">= 2024.3.2"
 
 
 @nox.session
 def lint(session):
     session.install("flake8")
     session.run(
-        "flake8", "--exclude", ".nox,*.egg,build,data",
-        "--select", "E,W,F", "."
+        "flake8", "--exclude", ".nox,*.egg,build,data", "--select", "E,W,F", "."
     )
 
 
